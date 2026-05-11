@@ -1,0 +1,312 @@
+/* Navbar Component Styles */
+.navbar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: var(--transition-smooth);
+}
+
+/* Scrolled state background overlay */
+.navbar-wrapper.scrolled,
+.navbar-wrapper.theme-header {
+  box-shadow: var(--shadow-sm);
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* Home Page top overlay before scroll (transparent with white text) */
+.navbar-wrapper.transparent-home {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.navbar-wrapper.transparent-home .nav-logo {
+  color: #ffffff !important;
+}
+
+.navbar-wrapper.transparent-home .logo-icon {
+  color: var(--accent-gold) !important;
+}
+
+.navbar-wrapper.transparent-home .nav-link {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.navbar-wrapper.transparent-home .nav-link:hover,
+.navbar-wrapper.transparent-home .nav-link.active {
+  color: #ffffff !important;
+}
+
+.navbar-wrapper.transparent-home .nav-action-btn {
+  color: #ffffff !important;
+}
+
+.navbar-wrapper.transparent-home .nav-action-btn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.logo-icon {
+  color: var(--secondary);
+  transition: var(--transition-smooth);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-link {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  position: relative;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary);
+  transition: var(--transition-smooth);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--text-primary);
+}
+
+.nav-link.active::after, .nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-action-btn {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-snappy);
+  position: relative;
+}
+
+.nav-action-btn:hover {
+  background-color: var(--border-light);
+  transform: translateY(-1px);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background-color: var(--secondary);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+/* Mobile Menu Button */
+.mobile-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* simple hidden for mobile, we'll keep it neat or add dropdown */
+  }
+  .mobile-toggle {
+    display: block;
+  }
+}
+
+/* Navigation Dropdown List styling */
+.nav-dropdown-wrapper {
+  position: relative;
+}
+
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  list-style: none;
+  padding: 8px 0;
+  min-width: 180px;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1001;
+}
+
+.nav-dropdown-wrapper:hover .nav-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-item {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 12px 20px;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-snappy);
+}
+
+.dropdown-item:hover {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  padding-left: 24px;
+}
+
+/* Expandable Search in Navbar */
+.nav-search-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: transparent;
+  border-radius: var(--radius-full);
+  transition: all 0.3s ease;
+}
+
+.nav-search-bar.expanded {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  padding-right: 8px;
+}
+
+.nav-search-input-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  animation: slideInSearch 0.3s forwards cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideInSearch {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 180px;
+    opacity: 1;
+  }
+}
+
+.nav-search-input {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 6px 12px 6px 4px;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+.nav-search-clear-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: var(--radius-full);
+  transition: var(--transition-snappy);
+}
+
+.nav-search-clear-btn:hover {
+  color: var(--text-primary);
+  background-color: var(--border-light);
+}
+
+/* Ensure the input styling works in transparent-home state */
+.navbar-wrapper.transparent-home .nav-search-bar.expanded {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.navbar-wrapper.transparent-home .nav-search-input {
+  color: #ffffff;
+}
+
+.navbar-wrapper.transparent-home .nav-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-wrapper.transparent-home .nav-search-clear-btn {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.navbar-wrapper.transparent-home .nav-search-clear-btn:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.15);
+}

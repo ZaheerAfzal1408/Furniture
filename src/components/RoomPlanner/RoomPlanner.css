@@ -1,0 +1,275 @@
+/* RoomPlanner Component Styles */
+.planner-layout {
+  display: flex;
+  gap: 32px;
+  min-height: 600px;
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
+}
+
+@media (max-width: 1024px) {
+  .planner-layout {
+    flex-direction: column;
+  }
+}
+
+/* Sidebar Library */
+.planner-sidebar {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .planner-sidebar {
+    width: 100%;
+  }
+}
+
+.planner-section-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 12px;
+}
+
+.library-items-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.library-item-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: grab;
+  transition: var(--transition-snappy);
+  user-select: none;
+}
+
+.library-item-card:hover {
+  transform: translateX(4px);
+  border-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.library-item-card:active {
+  cursor: grabbing;
+}
+
+.library-item-preview {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  border: 1px dashed var(--text-muted);
+}
+
+.library-item-details {
+  flex: 1;
+}
+
+.library-item-name {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.library-item-price {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+/* Canvas Workplace */
+.planner-workspace-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.planner-workspace-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.planner-canvas {
+  width: 100%;
+  height: 500px;
+  background-color: var(--bg-primary);
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+  border: 2px dashed var(--border-light);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.02);
+  cursor: default;
+}
+
+/* Grid Background */
+.planner-canvas::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 25px 25px;
+  background-image: 
+    linear-gradient(to right, var(--border-light) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-light) 1px, transparent 1px);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Canvas Elements (Furniture Placed) */
+.placed-furniture {
+  position: absolute;
+  cursor: move;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  user-select: none;
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-sm);
+  touch-action: none;
+}
+
+.placed-furniture:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.placed-furniture.selected {
+  outline: 2px solid var(--secondary);
+  box-shadow: var(--shadow-lg);
+  z-index: 10;
+}
+
+.furniture-icon-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 4px;
+}
+
+.furniture-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 90%;
+}
+
+/* Canvas Selection Guides & Controls */
+.furniture-rotate-handle {
+  position: absolute;
+  top: -30px;
+  left: calc(50% - 12px);
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  background-color: var(--secondary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  z-index: 20;
+}
+
+.furniture-rotate-handle:hover {
+  background-color: var(--secondary-light);
+  transform: scale(1.1);
+}
+
+.furniture-delete-handle {
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 12px);
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  background-color: var(--error);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  z-index: 20;
+}
+
+.furniture-delete-handle:hover {
+  background-color: #ff4d4d;
+  transform: scale(1.1);
+}
+
+/* Ticker Estimation Panel */
+.planner-ticker-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-light);
+}
+
+.planner-ticker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.planner-ticker-price {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.planner-ticker-btn {
+  width: 100%;
+}
+
+.canvas-instructions {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
