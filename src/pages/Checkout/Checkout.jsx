@@ -85,7 +85,7 @@ export const Checkout = ({ setView }) => {
         
         setTimeout(() => {
           setIsProcessing(false);
-          const generatedOrderId = `VEL-${Math.floor(100000 + Math.random() * 900000)}`;
+          const generatedOrderId = `FUR-${Math.floor(100000 + Math.random() * 900000)}`;
           setOrderId(generatedOrderId);
           setStep(3);
           clearCart();
@@ -341,7 +341,7 @@ export const Checkout = ({ setView }) => {
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                           <div>
                             <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', textTransform: 'uppercase' }}>Account Title</span>
-                            <span style={{ fontSize: '0.9rem', fontWeight: 600 }}>Vélure Atelier (Pvt) Ltd</span>
+                            <span style={{ fontSize: '0.9rem', fontWeight: 600 }}>Furniture Atelier (Pvt) Ltd</span>
                           </div>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: 'var(--bg-primary)', padding: '10px 14px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
@@ -372,7 +372,7 @@ export const Checkout = ({ setView }) => {
                         <div style={{ backgroundColor: 'var(--bg-primary)', padding: '16px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
                           <span style={{ fontSize: '0.75rem', color: '#e67e22', display: 'block', fontWeight: 700, textTransform: 'uppercase', marginBottom: '4px' }}>JazzCash</span>
                           <span style={{ fontSize: '0.95rem', fontWeight: 700, fontFamily: 'monospace', display: 'block', marginBottom: '8px' }}>0300-8432100</span>
-                          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block' }}>Title: Vélure Atelier</span>
+                          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block' }}>Title: Furniture Atelier</span>
                           <button 
                             type="button" 
                             className="btn-text" 
@@ -388,7 +388,7 @@ export const Checkout = ({ setView }) => {
                         <div style={{ backgroundColor: 'var(--bg-primary)', padding: '16px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
                           <span style={{ fontSize: '0.75rem', color: '#2ecc71', display: 'block', fontWeight: 700, textTransform: 'uppercase', marginBottom: '4px' }}>EasyPaisa</span>
                           <span style={{ fontSize: '0.95rem', fontWeight: 700, fontFamily: 'monospace', display: 'block', marginBottom: '8px' }}>0300-8432100</span>
-                          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block' }}>Title: Vélure Atelier</span>
+                          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block' }}>Title: Furniture Atelier</span>
                           <button 
                             type="button" 
                             className="btn-text" 

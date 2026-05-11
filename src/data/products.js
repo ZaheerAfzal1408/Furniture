@@ -1,4 +1,4 @@
-// Vélure Premium Pakistani Furniture Database
+// Furniture Premium Pakistani Furniture Database
 
 export const products = [
   {

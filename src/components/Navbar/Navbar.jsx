@@ -38,7 +38,7 @@ export const Navbar = ({ currentView, setView, searchQuery, setSearchQuery }) =>
         {/* Brand Logo */}
         <a href="#home" className="nav-logo" onClick={(e) => { e.preventDefault(); setView('home'); }}>
           <Sparkles className="logo-icon" size={22} />
-          <span>Vélure</span>
+          <span>Furniture</span>
         </a>
 
         {/* Navigation Menu */}

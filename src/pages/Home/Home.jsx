@@ -23,7 +23,7 @@ export const Home = ({ setView }) => {
             <span className="hero-tag">Aura Of Luxury</span>
             <h1 className="hero-title">Timeless Integrity, Bespoke Living.</h1>
             <p className="hero-desc">
-              At Vélure, we craft furniture that transcends trends. Rooted in Mid-Century aesthetics and Scandinavian simplicity, each piece is engineered for generational comfort.
+              At Furniture, we craft pieces that transcend trends. Rooted in Mid-Century aesthetics and Scandinavian simplicity, each piece is engineered for generational comfort.
             </p>
             <div className="hero-btns">
               <button 

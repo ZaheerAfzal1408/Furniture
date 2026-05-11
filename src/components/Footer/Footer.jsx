@@ -27,7 +27,7 @@ export const Footer = ({ setView }) => {
           <div className="footer-brand-col">
             <a href="#home" className="footer-logo" onClick={(e) => { e.preventDefault(); setView('home'); }}>
               <Sparkles size={24} style={{ color: 'var(--secondary-light)' }} />
-              <span>Vélure</span>
+              <span>Furniture</span>
             </a>
             <p className="footer-desc">
               Crafting premium, bespoke living assets that merge mid-century aesthetics with durable scandinavian longevity. Each piece carries our legacy of wooden integrity.
@@ -85,7 +85,7 @@ export const Footer = ({ setView }) => {
             </form>
             {isSubscribed && (
               <p style={{ fontSize: '0.8rem', color: 'var(--secondary-light)', marginTop: '8px' }}>
-                Welcome to the Vélure Circle. Invitation sent.
+                Welcome to the Furniture Circle. Invitation sent.
               </p>
             )}
           </div>
@@ -94,7 +94,7 @@ export const Footer = ({ setView }) => {
 
         {/* Bottom Bar */}
         <div className="footer-bottom">
-          <span>&copy; {new Date().getFullYear()} Vélure Inc. All rights reserved. Made for premium design lovers.</span>
+          <span>&copy; {new Date().getFullYear()} Furniture Inc. All rights reserved. Made for premium design lovers.</span>
           <div className="footer-social-links" style={{ display: 'flex', gap: '20px', fontFamily: 'var(--font-display)', fontSize: '0.8rem', letterSpacing: '0.1em' }}>
             <a href="#instagram" className="footer-social-icon" aria-label="Instagram" style={{ textTransform: 'uppercase' }}>Instagram</a>
             <a href="#facebook" className="footer-social-icon" aria-label="Facebook" style={{ textTransform: 'uppercase' }}>Facebook</a>
